@@ -1,0 +1,218 @@
+
+.folders-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.folders-header {
+    background: var(--base-col-4);
+
+    transform: translateZ(-1em);
+    border-radius: 6px;
+
+    height: 1.25em;
+    padding: .25em .25em;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.new-folder-btn {
+    cursor: pointer;
+
+    width: 2.125em;
+    height: 1.875em;
+
+    color: gainsboro;
+    background: gray;
+
+    border-radius: .375em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-folder-btn:hover {
+    border-color: dimgray;
+    color: white;
+    background: silver;
+}
+
+.new-folder-form {
+    height: 100%;
+    
+    margin: .25em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.folder-color-select-container {
+    padding: .25em;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.folder-edit-col-modal {
+    transform: scale(50%) translateZ(-2em);
+}
+
+.folder-color-select-option {
+    width: 2em;
+    height: 2em;
+    
+    margin: .25em;
+
+    background: var(--folder-color-0);
+
+    border: 2px black solid;
+    border-radius: 20%;
+}
+
+.folder-color-option-selected {
+    outline: 4px var(--base-col-6) solid;
+}
+
+.folder-color-select-current {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.new-folder-form-btn {
+    background: var(--base-col-2);
+    color: var(--base-col-6);
+    width: 50%;
+    height: 2.5em;
+}
+
+.folder-list {
+    background: var(--base-col-3);
+
+    margin: 0;
+    padding: 1.25em .25em .25em 0em;
+
+    transform: translateY(-1em);
+
+    border-radius: 5%;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.folder-list-item {
+    cursor: pointer;
+
+    height: 1.25em;
+
+    margin: .25em .125em .25em .25em;
+    padding: .125em .25em;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: .25em;
+
+}
+   
+.folder-color-icon {
+    width: 1.125em;
+    height: 1.125em;
+    
+    border: 1px var(--base-col-6) solid;
+    border-radius: 20%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    user-select: none;
+}
+
+.folder-color-icon > span {
+    display: none;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 100, 'opsz' 20;
+    opacity: 60%;
+    cursor: pointer;
+
+}
+
+.folder-list-item:hover > div > .folder-color-icon > span {
+    display: unset;
+    color: white;
+}
+
+.folder-color-icon:hover > span {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 100, 'opsz' 20;
+    opacity: 100%;
+    text-shadow: black 0px 0px 4px;
+}
+
+
+.folder-list-item:hover {
+    background: grey;
+    box-shadow: black 1px 1px 1px 1px;
+}
+
+.folder-list-item > div > p {
+    padding: 0;
+    margin: 0;
+    max-width: 80%;
+    line-height: 92%;
+    padding-left: .25em;
+}
+
+.folder-selected {
+    cursor: unset;
+    background: var(--base-col-4);
+
+    outline: 2px var(--selected-highlight) solid;
+}
+
+.folder-selected > div > span {
+    cursor: pointer;
+}
+
+.folder-selected > div > p {
+    cursor: default;
+}
+
+.folder-btn {
+    height: .8em;
+    width: .75em;
+
+    /* border-radius: 4px; */
+
+    display: flex;
+
+    color: var(--base-col-6);
+    background: transparent;
+
+    /* outline: 2px solid var(--base-col-6); */
+
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.folder-btn:hover {
+    color: var(--base-col-0);
+}
+
+.list-item-del:hover {
+    box-shadow: rgb(255, 130, 130) 0 0 8px 0 ;
+}
+
+.folder-list-item:hover > .folder-btn {
+    opacity: 100%;
+}

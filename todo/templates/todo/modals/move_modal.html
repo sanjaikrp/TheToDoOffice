@@ -1,0 +1,36 @@
+{% extends 'modal.html' %}
+
+{% block content %}
+<div id="modal-wrapper" class="modal-wrapper"
+     hx-get="{% url 'close_modal' %}"
+     hx-target="#modal-wrapper"
+     hx-swap="outerHTML"
+     hx-trigger="click target:#modal-wrapper"
+>
+
+    <div id="modal task-change-folder-modal" class="modal task-change-folder-modal">
+
+        <h3 class="modal-title">Mover para...</h3>
+
+        <ul>
+            {% include 'todo/modals/move_modal_li.html' with folder_name="Todas" target_task=target_task %}
+            {% for folder in folders %}
+                {% include 'todo/modals/move_modal_li.html' with folder_name=folder.folder_name target_task=target_task folder=folder %}
+            {% endfor %}
+        </ul>
+
+        <button class="close-modal"
+                type="button"
+                hx-get="{% url 'close_modal' %}"
+                hx-target="#modal-wrapper"
+                hx-swap="outerHTML"
+        >
+        cancel
+        </button>
+
+
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+<div
+    class="content-area"
+    id="content-area"
+    hx-get="{% url 'folders' %}"
+    hx-trigger="load"
+    hx-target="#folders-wrapper"
+    hx-swap="outerHTML"
+    _="on htmx:afterRequest x_scroll_apply() log 'folder-list updated!'"
+>
+    <div id="sel-tasks-super-updater"></div>
+    <div class="sel-tasks-super-updater-manager"
+         hx-get="{% url 'sel-tasks-super-update' %}"
+         hx-trigger="update"
+         hx-target="#sel-tasks-super-updater"
+         hx-swap="outerHTML"
+         _="on load trigger update on me"
+    ></div>
+
+    <!-- <div style="display: none;"
+         _="on htmx:load from #content-area call add_listeners_to_task()"
+    ></div> -->
+
+    <!-- folder name -->
+    {% if current_folder %}
+    <div class="folder-name-container" style="box-shadow: inset 0 -4px var(--folder-color-{{current_folder.color}})">
+    {% else %}
+    <div class="folder-name-container folder-name-container-all">
+    {% endif %}
+        <div><h1 class="folder-name-text"></h1></div>
+        <div>
+            <h1 class="folder-name-text">
+            {% if current_folder %}
+                {{ current_folder.folder_name }}
+            {% else %}
+                Todas
+            {% endif %}
+            </h1>
+        </div>
+    </div>
+
+    <div id="tasks-container" class="tasks-container">
+        <!--task list-->
+        <div class="task-list" id="task-list">
+            {% for task in tasks %}
+                {% include 'todo/task_list_item.html' with task=task %}
+            {% empty %}
+            <div style="padding-left:4em">empty...</div>
+            {% endfor %}
+            <div style="background: transparent; color: transparent; user-select: none; width: 70%;">.</div>
+        </div>
+    </div>
+</div>
+

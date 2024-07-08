@@ -1,0 +1,48 @@
+{% extends 'modal.html' %}
+
+{% block content %}
+<div id="modal-wrapper" class="modal-wrapper"
+     hx-get="{% url 'close_modal' %}"
+     hx-target="#modal-wrapper"
+     hx-swap="outerHTML"
+     hx-trigger="click target:#modal-wrapper"
+>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <div id="modal new-folder-modal" class="modal new-folder-modal">
+
+        <h3 class="modal-title">Nova Pasta</h3>
+
+        <form   class="new-folder-form" id="f_new_form"
+                hx-post="{% url 'new_folder' %}"
+                hx-target="#content-area"
+                hx-trigger="new_folder_confirm"
+                _="on new_folder_confirm add .inactive to #modal-wrapper then log 'modal-wrapper inactive ...'"
+        >
+            <div style="display: flex; align-items: center">
+                <input id="f_new_name" style="height: 2em; width: 100%;" type="text" name="folder_name" id="folder_name" placeholder="Nome da pasta" value="Nova Pasta {{next_folder_id}}" autofocus autocomplete="off">
+                {% include 'folders\modals\new-folder-modal-color-selected.html' %}
+            </div>
+            {% include 'folders\modals\new-folder-modal-colors.html' with new_folder_current_color=new_folder_current_color%}
+            <hr>
+            
+            <div style="display: flex; justify-content: space-between;">
+
+                <button class="close-modal new-folder-form-btn"
+                        type="button"
+                        hx-get="{% url 'close_modal' %}"
+                        hx-target="#modal-wrapper"
+                        hx-swap="outerHTML"
+                >
+                    cancel
+                </button>
+
+                <button class="new-folder-form-btn" onclick="if (document.getElementById('f_new_name').value) {htmx.trigger('#f_new_form', 'new_folder_confirm'); return true} else return false" type="button">ok</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

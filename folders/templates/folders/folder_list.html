@@ -1,0 +1,37 @@
+{% extends 'folders/base.html' %}
+{% block content %}
+<div class="folders-container" id="folders-wrapper">
+    <ul class="folder-list">
+        {% if current_folder is None %}
+            {% include 'folders/folder-list-item.html' with selected=True %}
+        {% else %}
+            {% include 'folders/folder-list-item.html' with selected=False %}
+        {% endif %}
+        {% for folder in folders %}
+            {% if folder.id is current_folder.id %}
+                {% include 'folders/folder-list-item.html' with folder=folder selected=True %}
+            {% else %}
+                {% include 'folders/folder-list-item.html' with folder=folder selected=False %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <div class="folders-header">
+        <h3>Folders</h3>
+        <button class="new-folder-btn"
+                hx-get="{% url 'new-folder-modal' %}"
+                hx-target="#modal-wrapper"
+                hx-swap="outerHTML"
+        >
+            <span class="material-symbols-outlined">
+                create_new_folder
+            </span>
+        </button>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+

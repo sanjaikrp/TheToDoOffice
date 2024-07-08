@@ -1,0 +1,40 @@
+:root {
+
+    --base-col-0: #313131;
+    --base-col-1: #212121;
+    --base-col-2: #1a1a1a;
+    --base-col-3: #0e0e0e;
+    --base-col-4: #525252;
+    --base-col-5: #272727;
+    --base-col-6: #c9c9c9;
+
+    --base-font-col: white;
+
+    color: var(--base-col-6);
+
+    --soft-highlight-1: thistle;
+    --soft-highlight-2: lightsteelblue;
+
+    --highlight-2: skyblue;
+
+    --sel-tools-btn: mediumblue;
+    --sel-tools-txt: darkseagreen;
+
+    --selected-highlight: white;
+
+    --scrollbar-thumb: black;
+
+    --folder-color-0:  #AD4848; /* red     */
+    --folder-color-1:  #AD7E39; /* orange  */
+    --folder-color-2:  #ADAD29; /* yellow  */
+    --folder-color-3:  #76AD31; /* green 1 */
+    --folder-color-4:  #39AD39; /* green 2 */
+    --folder-color-5:  #36AD6F; /* cyan 1  */
+    --folder-color-6:  #368E97; /* cyan 2  */
+    --folder-color-7:  #27ADAD; /* blue 1  */
+    --folder-color-8:  #4287AD; /* blue 2  */
+    --folder-color-9:  #5252AD; /* d blue  */
+    --folder-color-10: #8E49AD; /* indigo  */
+    --folder-color-11: #AD42AD; /* violet  */
+    --folder-color-12: #B8457A; /* pink    */
+}
